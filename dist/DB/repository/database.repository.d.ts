@@ -46,7 +46,7 @@ export declare abstract class DatabaseRepository<TRawDocument, TDocument = Hydra
     findOneAndUpdate({ filter, update, options, }: {
         filter?: RootFilterQuery<TRawDocument>;
         update: UpdateQuery<TDocument>;
-        options?: MongooseUpdateQueryOptions<TDocument> | null;
+        options?: QueryOptions<TDocument> | null;
     }): Promise<TDocument | Lean<TDocument> | null>;
     deleteOne({ filter, }: {
         filter: RootFilterQuery<TRawDocument>;

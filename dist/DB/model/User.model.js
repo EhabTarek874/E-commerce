@@ -26,6 +26,7 @@ let User = class User {
     preferredLanguage;
     changeCredentialsTime;
     otp;
+    profilePicture;
 };
 exports.User = User;
 __decorate([
@@ -86,6 +87,10 @@ __decorate([
     (0, mongoose_1.Virtual)(),
     __metadata("design:type", Array)
 ], User.prototype, "otp", void 0);
+__decorate([
+    (0, mongoose_1.Prop)({ type: String, }),
+    __metadata("design:type", String)
+], User.prototype, "profilePicture", void 0);
 exports.User = User = __decorate([
     (0, mongoose_1.Schema)({ strictQuery: true, timestamps: true, toObject: { virtuals: true }, toJSON: { virtuals: true } })
 ], User);

@@ -11,6 +11,8 @@ const common_1 = require("@nestjs/common");
 const user_controller_1 = require("./user.controller");
 const user_service_1 = require("./user.service");
 const authentication_middleware_1 = require("../../common/interfaces/authentication.middleware");
+const platform_express_1 = require("@nestjs/platform-express");
+const common_2 = require("../../common");
 let UserModule = class UserModule {
     configure(consumer) {
         consumer
@@ -21,9 +23,9 @@ let UserModule = class UserModule {
 exports.UserModule = UserModule;
 exports.UserModule = UserModule = __decorate([
     (0, common_1.Module)({
-        imports: [],
+        imports: [platform_express_1.MulterModule.register({})],
         controllers: [user_controller_1.UserController],
-        providers: [user_service_1.UserService],
+        providers: [user_service_1.UserService, common_2.S3service],
         exports: [],
     })
 ], UserModule);

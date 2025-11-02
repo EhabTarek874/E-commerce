@@ -1,7 +1,8 @@
 import { HydratedDocument } from "mongoose";
 import { GenderEnum, LanguageEnum, ProviderEnum, RoleEnum } from "src/common/enums";
 import { OtpDocument } from "./Otp.model";
-export declare class User {
+import { IUser } from "src/common";
+export declare class User implements IUser {
     firstName: string;
     lastName: string;
     username: string;
@@ -14,6 +15,7 @@ export declare class User {
     preferredLanguage: LanguageEnum;
     changeCredentialsTime: Date;
     otp: OtpDocument[];
+    profilePicture: string;
 }
 export type UserDocument = HydratedDocument<User>;
 export declare const UserModel: import("@nestjs/common").DynamicModule;

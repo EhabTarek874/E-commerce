@@ -18,4 +18,5 @@ __exportStar(require("./credential.decorator"), exports);
 __exportStar(require("./auth.decorator"), exports);
 __exportStar(require("./match.custom.decorator"), exports);
 __exportStar(require("./tokenType.decorator"), exports);
+__exportStar(require("./update.decorator"), exports);
 //# sourceMappingURL=index.js.map

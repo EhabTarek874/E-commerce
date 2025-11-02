@@ -16,6 +16,8 @@ const path_1 = require("path");
 const user_module_1 = require("./modules/user/user.module");
 const mongoose_1 = require("@nestjs/mongoose");
 const common_2 = require("./common");
+const brand_module_1 = require("./modules/brand/brand.module");
+const category_module_1 = require("./modules/category/category.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -26,10 +28,12 @@ exports.AppModule = AppModule = __decorate([
             mongoose_1.MongooseModule.forRoot(process.env.DB_URI, { serverSelectionTimeoutMS: 30000 }),
             common_2.SharedAuthenticationModule,
             auth_module_1.AuthenticationModule,
+            brand_module_1.BrandModule,
+            category_module_1.CategoryModule,
             user_module_1.UserModule
         ],
         controllers: [app_controller_1.AppController,],
-        providers: [app_service_1.AppService,],
+        providers: [app_service_1.AppService, common_2.S3service],
     })
 ], AppModule);
 //# sourceMappingURL=app.module.js.map

@@ -1,1 +1,1 @@
-{"version":3,"file":"auth.entity.js","sourceRoot":"","sources":["../../../../src/modules/auth/entities/auth.entity.ts"],"names":[],"mappings":";;;AAIA,MAAa,aAAa;IACtB,OAAO,CAAQ;IACf,IAAI,CAAuC;CAC9C;AAHD,sCAGC"}
+{"version":3,"file":"auth.entity.js","sourceRoot":"","sources":["../../../../src/modules/auth/entities/auth.entity.ts"],"names":[],"mappings":";;;AAIA,MAAa,aAAa;IACtB,WAAW,CAAyB;CACvC;AAFD,sCAEC"}

@@ -16,26 +16,27 @@ exports.AuthenticationController = void 0;
 const common_1 = require("@nestjs/common");
 const auth_service_1 = require("./auth.service");
 const signup_dto_1 = require("./dto/signup.dto");
+const common_2 = require("../../common");
 let AuthenticationController = class AuthenticationController {
     authenticationService;
     constructor(authenticationService) {
         this.authenticationService = authenticationService;
     }
-    signup(body) {
-        this.authenticationService.signup(body);
-        return { message: 'Done' };
+    async signup(body) {
+        await this.authenticationService.signup(body);
+        return (0, common_2.successResponse)();
     }
-    resendConfirmEmail(body) {
-        this.authenticationService.resendConfirmEmail(body);
-        return { message: 'Done' };
+    async resendConfirmEmail(body) {
+        await this.authenticationService.resendConfirmEmail(body);
+        return (0, common_2.successResponse)();
     }
-    ConfirmEmail(body) {
-        this.authenticationService.confirmEmail(body);
-        return { message: 'Done' };
+    async ConfirmEmail(body) {
+        await this.authenticationService.confirmEmail(body);
+        return (0, common_2.successResponse)();
     }
     async login(body) {
         const credentials = await this.authenticationService.login(body);
-        return { message: "Done", data: { credentials } };
+        return (0, common_2.successResponse)({ message: "Done", data: { credentials } });
     }
 };
 exports.AuthenticationController = AuthenticationController;
@@ -44,21 +45,21 @@ __decorate([
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [signup_dto_1.SignupDto]),
-    __metadata("design:returntype", Object)
+    __metadata("design:returntype", Promise)
 ], AuthenticationController.prototype, "signup", null);
 __decorate([
     (0, common_1.Post)('resend-confirm-email'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [signup_dto_1.ResendConfirmEmailDto]),
-    __metadata("design:returntype", Object)
+    __metadata("design:returntype", Promise)
 ], AuthenticationController.prototype, "resendConfirmEmail", null);
 __decorate([
     (0, common_1.Patch)('confirm-email'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [signup_dto_1.ConfirmEmailDto]),
-    __metadata("design:returntype", Object)
+    __metadata("design:returntype", Promise)
 ], AuthenticationController.prototype, "ConfirmEmail", null);
 __decorate([
     (0, common_1.HttpCode)(200),

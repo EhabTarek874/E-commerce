@@ -2,8 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoginResponse = void 0;
 class LoginResponse {
-    message;
-    data;
+    credentials;
 }
 exports.LoginResponse = LoginResponse;
 //# sourceMappingURL=auth.entity.js.map

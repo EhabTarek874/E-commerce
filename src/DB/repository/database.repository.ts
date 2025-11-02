@@ -177,12 +177,22 @@ export abstract class DatabaseRepository<TRawDocument ,  TDocument=HydratedDocum
   async findOneAndUpdate({
     filter,
     update,
-    options,
+    options={new:true},
   }: {
     filter?: RootFilterQuery<TRawDocument>;
     update: UpdateQuery<TDocument>;
-    options?: MongooseUpdateQueryOptions<TDocument> | null;
+    options?: QueryOptions<TDocument> | null;
   }): Promise<TDocument | Lean<TDocument> | null> {
+
+      if (Array.isArray(update)) {
+      update.push({
+        $set: {
+          __v: { $add: ["$__v", 1] },
+        },
+      });
+      return await this.model.findOneAndUpdate(filter || {}, update, options);
+    }
+
     return await this.model.findOneAndUpdate(
       filter,
       { ...update, $inc: { __v: 1 } },

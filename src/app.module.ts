@@ -6,7 +6,9 @@ import { ConfigModule } from '@nestjs/config';
 import { resolve } from 'path';
 import { UserModule } from './modules/user/user.module';
 import { MongooseModule } from '@nestjs/mongoose';
-import { SharedAuthenticationModule } from './common';
+import { S3service, SharedAuthenticationModule } from './common';
+import { BrandModule } from './modules/brand/brand.module';
+import { CategoryModule } from './modules/category/category.module';
 
 @Module({
   imports: [
@@ -14,9 +16,11 @@ import { SharedAuthenticationModule } from './common';
     MongooseModule.forRoot(process.env.DB_URI as string, {serverSelectionTimeoutMS:30000}),
     SharedAuthenticationModule,
     AuthenticationModule,
+    BrandModule,
+    CategoryModule,
     UserModule
   ],
   controllers: [AppController, ],
-  providers: [AppService, ],
+  providers: [AppService, S3service],
 })
 export class AppModule {}

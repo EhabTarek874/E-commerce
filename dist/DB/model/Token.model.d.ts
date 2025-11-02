@@ -1,5 +1,6 @@
 import { HydratedDocument, Types } from "mongoose";
-export declare class Token {
+import { IToken } from "src/common";
+export declare class Token implements IToken {
     jti: string;
     expiredAt: Date;
     createdBy: Types.ObjectId;

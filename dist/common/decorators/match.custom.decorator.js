@@ -6,9 +6,27 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MatchBetweenFields = void 0;
+exports.MatchBetweenFields = exports.MongoDBIds = void 0;
 exports.IsMatch = IsMatch;
 const class_validator_1 = require("class-validator");
+const mongoose_1 = require("mongoose");
+let MongoDBIds = class MongoDBIds {
+    validate(ids, args) {
+        for (const id of ids) {
+            if (!mongoose_1.Types.ObjectId.isValid(id)) {
+                return false;
+            }
+        }
+        return true;
+    }
+    defaultMessage(validationArguments) {
+        return `Invalid mongoDB format`;
+    }
+};
+exports.MongoDBIds = MongoDBIds;
+exports.MongoDBIds = MongoDBIds = __decorate([
+    (0, class_validator_1.ValidatorConstraint)({ name: "match_between_fields", async: false })
+], MongoDBIds);
 let MatchBetweenFields = class MatchBetweenFields {
     validate(value, args) {
         return value === args.object[args.constraints[0]];

@@ -1,10 +1,10 @@
 import { MongooseModule, Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { HydratedDocument, Types } from "mongoose";
-import { emailEvent, generateHash, OtpEnum } from "src/common";
+import { emailEvent, generateHash, OtpEnum, IOtb } from "src/common";
 
 
 @Schema({timestamps:true})
-export class Otp {
+export class Otp implements IOtb{
 
     @Prop({type:String, required:true})
     code:string;

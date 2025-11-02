@@ -17,4 +17,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./user.repository"), exports);
 __exportStar(require("./otp.repository"), exports);
 __exportStar(require("./token.repository"), exports);
+__exportStar(require("./brand.repository"), exports);
+__exportStar(require("./category.repository"), exports);
 //# sourceMappingURL=index.js.map

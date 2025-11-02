@@ -1,6 +1,6 @@
 import { HydratedDocument, Types } from "mongoose";
-import { OtpEnum } from "src/common";
-export declare class Otp {
+import { OtpEnum, IOtb } from "src/common";
+export declare class Otp implements IOtb {
     code: string;
     expiredAt: Date;
     createdBy: Types.ObjectId;
